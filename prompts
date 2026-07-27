@@ -1,0 +1,59 @@
+# AI-Assisted Development Log — Sprint 10 (ShopFront: Redux Toolkit E-Commerce Catalog)
+
+This document records the sequence of directed prompts used with Claude (Anthropic) as a development-acceleration tool while building this project. Each prompt reflects a specific architectural decision or debugging step made during the build — the AI was used as a pair-programming assistant under my direction, not as an autonomous code generator. All architectural choices (state shape, folder structure, styling system, optimization strategy) were made by me and implemented iteratively with AI assistance.
+
+---
+
+### Phase 1 — Base Architecture
+
+**1.** "I need to decide between Redux Toolkit and Zustand for a sprint that requires demonstrating global state management with dispatch-based mutations. Which is the better fit given the requirement to 'prove state mutation via standard dispatch actions'?"
+
+**2.** "Let's scaffold a fresh Vite + React project for an e-commerce product catalog using fakestoreapi.com as the data source. Set up the initial folder structure for a Redux Toolkit integration."
+
+**3.** "Walk me through installing and wiring Redux Toolkit and react-redux into this project — I need the store, the Provider, and a working cart slice with add/remove/increment/decrement/clear actions."
+
+**4.** "My `npm run dev` is throwing a Vite import-analysis error saying it can't resolve 'react-redux'. Help me debug why the package isn't in node_modules despite running the install command."
+
+**5.** "Confirmed the install issue was a wrong working directory. Also flag: is running this project inside a OneDrive-synced folder likely to cause future install flakiness, and should I move it?"
+
+**6.** "Now build out `ProductGrid.jsx` to fetch the product list from fakestoreapi.com, and `ProductCard.jsx` to dispatch `addToCart` on click, so I can prove the Redux mutation is working end to end."
+
+**7.** "Give me the Cart panel UI (`Cart.jsx` and `CartItem.jsx`) with quantity increment/decrement and a clear-cart button, all dispatching through the existing cart slice."
+
+**8.** "Style the whole Phase 1 build with the dark glassmorphism aesthetic I've used across previous sprints — Space Grotesk/Rajdhani fonts, class-based CSS only, no inline styles."
+
+---
+
+### Phase 2 — Sidebar Filters & Global Filter State
+
+**9.** "Design a `filtersSlice.js` that holds category and price-range state, following the same slice pattern as the cart."
+
+**10.** "Build a `Sidebar.jsx` with category buttons and min/max price inputs that dispatch directly to the filters slice — no local component state for the filter values themselves."
+
+**11.** "Update `ProductGrid.jsx` to derive the visible product list from the global filters state instead of filtering locally, so category and price changes reflect instantly in the grid."
+
+**12.** "I'm getting a 'module does not provide an export named default' error for themeSlice.js even though the file looks correct — help me figure out if this is a stale Vite cache or an unsaved-file issue."
+
+**13.** "Confirmed it was an unsaved file in the editor. Any other files I should double check are actually saved to disk before assuming the app reflects my latest edits?"
+
+---
+
+### Phase 3 — Optimization & Theme Manager
+
+**14.** "Refactor `ProductGrid.jsx` to wrap the filtered product calculation in `useMemo`, keyed to product list and filter values, so it doesn't recompute on unrelated re-renders."
+
+**15.** "Wrap the `fetchProducts` function in `useCallback` and explain why that matters here versus just calling fetch directly inside `useEffect`."
+
+**16.** "Wrap `ProductCard` in `React.memo` so cards don't re-render when unrelated state changes, like the cart or theme."
+
+**17.** "Build a `themeSlice.js` with a `toggleTheme` action and wire a toggle button into the navbar that reads and dispatches theme state."
+
+**18.** "The theme toggle button changes but the page colors aren't updating — help me figure out if this is a CSS specificity issue or a state issue, and what to check first."
+
+**19.** "Confirmed the toggle works after a full refresh — was this a stale Redux/HMR store issue rather than a CSS bug?"
+
+**20.** "Now that all three phases are working end to end, generate a `prompts.md` documenting this build process in order, and a `README.md` for the repo, for evaluator submission."
+
+---
+
+*Note: This log reflects directed, iterative use of AI assistance for scaffolding, debugging, and pattern consistency across a multi-phase sprint. Core architectural decisions — state shape, component boundaries, styling system, and optimization targets — were specified and reviewed by me throughout.*
