@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../features/cart/cartSlice';
 
@@ -28,4 +29,4 @@ function ProductCard({ product }) {
   );
 }
 
-export default ProductCard;
+export default memo(ProductCard);

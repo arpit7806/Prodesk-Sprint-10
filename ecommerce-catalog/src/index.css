@@ -397,3 +397,62 @@ body {
 .sidebar__reset-btn:hover {
   background: rgba(255, 255, 255, 0.15);
 }
+
+/* Theme variants */
+.app--light {
+  background: #f4f4f8;
+  color: #1a1a1f;
+}
+
+.app--light .navbar {
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.app--light .navbar__logo {
+  color: #1a1a1f;
+}
+
+.app--light .sidebar,
+.app--light .product-card {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.app--light .sidebar__category-btn,
+.app--light .product-card__title,
+.app--light .cart-panel {
+  color: #1a1a1f;
+}
+
+.app--light .cart-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.app--light .grid-status {
+  color: rgba(26, 26, 31, 0.6);
+}
+
+/* Navbar actions */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.navbar__theme-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: inherit;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.navbar__theme-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
