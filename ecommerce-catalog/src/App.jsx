@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navbar from './components/Navbar';
+import Sidebar from './features/filters/Sidebar';
 import ProductGrid from './components/ProductGrid';
 import Cart from './features/cart/Cart';
 import './index.css';
@@ -10,9 +11,12 @@ function App() {
   return (
     <div className="app">
       <Navbar onCartClick={() => setIsCartOpen(true)} />
-      <main className="app__main">
-        <ProductGrid />
-      </main>
+      <div className="app__layout">
+        <Sidebar />
+        <main className="app__main">
+          <ProductGrid />
+        </main>
+      </div>
       <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </div>
   );

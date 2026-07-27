@@ -291,3 +291,109 @@ body {
   cursor: pointer;
   align-self: flex-start;
 }
+
+/* Layout */
+.app__layout {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.app__main {
+  flex: 1;
+  padding: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.2rem;
+  height: fit-content;
+  position: sticky;
+  top: 6rem;
+}
+
+.sidebar__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar__section {
+  margin-bottom: 1.5rem;
+}
+
+.sidebar__label {
+  font-size: 0.85rem;
+  color: rgba(232, 232, 240, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.6rem;
+}
+
+.sidebar__category-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #e8e8f0;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  transition: background 0.2s;
+}
+
+.sidebar__category-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar__category-btn--active {
+  background: #6c5ce7;
+  color: white;
+}
+
+.sidebar__price-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar__price-input {
+  width: 70px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e8e8f0;
+  padding: 0.4rem;
+  border-radius: 6px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.sidebar__price-separator {
+  color: rgba(232, 232, 240, 0.5);
+  font-size: 0.85rem;
+}
+
+.sidebar__reset-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e8e8f0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+}
+
+.sidebar__reset-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
