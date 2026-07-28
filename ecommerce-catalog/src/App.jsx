@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Navbar from './components/Navbar';
 import Sidebar from './features/filters/Sidebar';
 import ProductGrid from './components/ProductGrid';
@@ -7,9 +8,11 @@ import './index.css';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const mode = useSelector((state) => state.theme.mode);
+  console.log('mode:', mode);
 
   return (
-    <div className="app">
+    <div className={`app app--${mode}`}>
       <Navbar onCartClick={() => setIsCartOpen(true)} />
       <div className="app__layout">
         <Sidebar />

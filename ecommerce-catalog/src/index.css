@@ -7,13 +7,23 @@
 }
 
 body {
-  background: #0a0a0f;
   font-family: 'Rajdhani', sans-serif;
-  color: #e8e8f0;
+  min-height: 100vh;
 }
 
 .app {
   min-height: 100vh;
+  transition: background 0.2s, color 0.2s;
+}
+
+.app--dark {
+  background: #0a0a0f;
+  color: #e8e8f0;
+}
+
+.app--light {
+  background: #f4f4f8;
+  color: #1a1a1f;
 }
 
 /* Navbar */
